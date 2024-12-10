@@ -1,0 +1,26 @@
+{
+    "name": "web-crawler-node",
+    "version": "1.0.0",
+    "description": "A simple web crawler built with TypeScript and Node.js.",
+    "main": "dist/index.js",
+    "scripts": {
+      "start": "node dist/index.js",
+      "build": "tsc",
+      "dev": "ts-node src/index.ts",
+      "lint": "eslint src/**/*.ts",
+      "prestart": "npm run build"
+    },
+    "dependencies": {
+      "axios": "^1.5.0",
+      "cheerio": "^1.0.0-rc.12"
+    },
+    "devDependencies": {
+      "@types/node": "^20.5.0",
+      "@typescript-eslint/eslint-plugin": "^6.2.0",
+      "@typescript-eslint/parser": "^6.2.0",
+      "eslint": "^8.50.0",
+      "ts-node": "^10.9.1",
+      "typescript": "^5.3.3"
+    }
+  }
+  
