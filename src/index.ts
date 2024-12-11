@@ -2,6 +2,16 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
+interface Inventory{
+    href: string;
+    price: string;
+    livingSpace: string[];
+    address: string;
+    descriptionTitle: string;
+    description: string;
+    imageUrl?: string;
+}
+
 /**
  * Fetches HTML content from a given URL.
  * @param url The URL to fetch.
@@ -14,16 +24,6 @@ async function fetchHTML(url: string): Promise<string> {
         console.error(`Error fetching URL (${url}):`, error);
         throw error;
     }
-}
-
-interface Inventory{
-    href: string;
-    price: string;
-    livingSpace: string[];
-    address: string;
-    descriptionTitle: string;
-    description: string;
-    imageUrl?: string;
 }
 
 /**
@@ -47,10 +47,7 @@ function extractInventory(html: string): Inventory[] {
         const imageUrl = imagesUrl?.split(',')[0].split(' ')[0];
         if (href) inventoryList.push({href, price, livingSpace, address,descriptionTitle,description, imageUrl});
     });
-    /*$('a').each((_, element) => {
-        const href = $(element).attr('href');
-        if (href) links.push(href);
-    });*/
+    
     return inventoryList;
 }
 
